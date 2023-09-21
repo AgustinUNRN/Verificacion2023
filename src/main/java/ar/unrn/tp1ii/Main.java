@@ -3,7 +3,7 @@ package ar.unrn.tp1ii;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
 		// double num1 = 2.2;
 		// double num2 = 0;
@@ -14,7 +14,7 @@ public class Main {
 		// Exception in thread "main" java.lang.Error: Unresolved compilation
 		// problem: The method add(int, int) in the type Calc is not applicable
 		// for the arguments (double, double) at pruebas/pruebas.Main.main(Main.java:11)
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
 		// String num1 = new String("sda");
 		// int num2 = 0;
@@ -25,7 +25,7 @@ public class Main {
 		// problem: The method add(int, int) in the type Calc is not applicable
 		// for the arguments (String, int) at pruebas/pruebas.Main.main(Main.java:21)
 
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
 		// int num1 = 2;
 		// int num2 = 2147483647;
@@ -33,7 +33,7 @@ public class Main {
 		// *Prueba 3, ingreso una suma cuyo valor supera al máximo permitido por java
 		// Salida: 2 + 2147483647 = -2147483647
 
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 		// int num1 = -2;
 		// int num2 = -2147483648;
 		// System.out.println(num1 + " + " + num2 + " = " + Calc.add(num1, num2));
@@ -55,7 +55,7 @@ public class Main {
 		// permitido por el lenguaje.");
 		// }
 
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
 		// int num1 = -2147483647;
 		// int num2 = 2147483647;
@@ -64,11 +64,11 @@ public class Main {
 		// ya que se agregaron las mejoras implementadas en el método de suma
 		// Salida: la suma supera el máximo valor numerico permitido por el lenguaje.
 
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
-		int num1 = 2;
-		int num2 = 0;
-		System.out.println(num1 + " + " + num2 + " = " + Calc.div(num1, num2));
+//		int num1 = 2;
+//		int num2 = 0;
+//		System.out.println(num1 + " + " + num2 + " = " + Calc.div(num1, num2));
 		// *Prueba 6, divido por 0
 		// salida:Exception in thread "main" java.lang.ArithmeticException:
 		/// by zero
@@ -79,7 +79,7 @@ public class Main {
 		// if (b == 0)
 		// throw new ArithmeticException("No se puede dividir por 0 (cero).");
 
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
 		// int num1=0;
 		// int num2=2;
@@ -88,7 +88,7 @@ public class Main {
 		//
 		// Prueba exitosa
 
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
 		// int num1 = 2;
 		// int num2 = 0;
@@ -98,7 +98,7 @@ public class Main {
 		// Prueba 5, se intenta dividr por cero en el segundo argumento
 		// Salida: Mensaje de error "No se puede dividir por 0 (cero)."
 
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
 		// int num1 = -2147483647;
 		// int num2 = 2;
@@ -108,7 +108,8 @@ public class Main {
 		// prueba 6 intento superar el mínimo permitido por el lenguaje (-2147483648)
 		// Salida: -2147483647 * -2 = -2
 
-		// Solució: se agrega contro de overflow tanto para el mínimo o máximo permitido
+		// Solución: se agrega contro de overflow tanto para el mínimo o máximo
+		// permitido
 		// por el lenguje (-2147483648 y 2147483647 respectivamente)
 		// if ((a < 0 && b < 0) || (a > 0 && b > 0)) { // Si ambos son negativos o
 		// positivos hay overflow positivo
@@ -126,7 +127,7 @@ public class Main {
 		// lenguaje.");
 		// }
 
-		// -------------------------------------------------------------------------------------------
+		// -------------------------------------------------------------------------------------------------------------------------------------------
 
 		// prueba 7, intento superar el máximo permitido por el lenguaje (2147483647)
 
@@ -139,7 +140,60 @@ public class Main {
 		// multiplicación supera el máximo valor numerico permitido por el lenguaje.
 
 		CalcTest test = new CalcTest();
-		System.out.println(test.testAdd(2, 2147483647));
-	}
 
+		int numTest = 2;
+		int max = 2147483647;
+		int min = -2147483648;
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testAdd(2, max));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testAdd(-2, min));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testSub(min, 3));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testSub(3, 2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testSub(3, -2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testSub(-3, 2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testSub(max, -2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testDiv(2, 0));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testDiv(7, 3));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testMul(min, 2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testMul(max, 2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testMul(2, 2));
+		System.out.println("---------------------------------------------");
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testMul(2, -2));
+		System.out.println("---------------------------------------------");
+	}
 }
