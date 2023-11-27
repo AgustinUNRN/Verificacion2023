@@ -41,39 +41,39 @@ public class Main {
 		// por java
 		// -2 + -2147483648 = 2147483646
 
-		// se agregaron controles para los casos de prueba 3 y 4
-		// if (a > 0 && b > 0) {
-		// int valorMaximo = 2147483647;
-		// if (valorMaximo - a < b)
-		// throw new ArithmeticException("la suma supera el máximo valor numerico
-		// permitido por el lenguaje.");
-		// }
-		// if (a < 0 && b < 0) {
-		// int valorMinimo = -2147483648;
-		// if (valorMinimo - a > b)
-		// throw new ArithmeticException("la suma supera el mínimo valor numerico
-		// permitido por el lenguaje.");
-		// }
+//		 se agregaron controles para los casos de prueba 3 y 4
+//		 if (a > 0 && b > 0) {
+//		 int valorMaximo = 2147483647;
+//		 if (valorMaximo - a < b)
+//		 throw new ArithmeticException("la suma supera el máximo valor numerico
+//		 permitido por el lenguaje.");
+//		 }
+//		 if (a < 0 && b < 0) {
+//		 int valorMinimo = -2147483648;
+//		 if (valorMinimo - a > b)
+//		 throw new ArithmeticException("la suma supera el mínimo valor numerico
+//		 permitido por el lenguaje.");
+//		 }
 
 		// -------------------------------------------------------------------------------------------------------------------------------------------
 
-		// int num1 = -2147483647;
-		// int num2 = 2147483647;
-		// System.out.println(num1 + " - " + num2 + " = " + Calc.sub(num2, num1));
-		// *prueba 5, en la operación de resta no hay problemas de overflow,
-		// ya que se agregaron las mejoras implementadas en el método de suma
-		// Salida: la suma supera el máximo valor numerico permitido por el lenguaje.
+//int num1 = -2147483647;
+//int num2 = 2147483647;
+//System.out.println(num1 + " - " + num2 + " = " + Calc.sub(num2, num1));
+//*prueba 5, en la operación de resta no hay problemas de overflow,
+//ya que se agregaron las mejoras implementadas en el método de suma
+//Salida: la suma supera el máximo valor numerico permitido por el lenguaje.
 
 		// -------------------------------------------------------------------------------------------------------------------------------------------
 
-//		int num1 = 2;
-//		int num2 = 0;
-//		System.out.println(num1 + " + " + num2 + " = " + Calc.div(num1, num2));
-		// *Prueba 6, divido por 0
-		// salida:Exception in thread "main" java.lang.ArithmeticException:
-		/// by zero
-		// at pruebas/pruebas.Calc.div(Calc.java:16)
-		// at pruebas/pruebas.Main.main(Main.java:36)
+//int num1 = 2;
+//int num2 = 0;
+//System.out.println(num1 + " + " + num2 + " = " + Calc.div(num1, num2));
+//*Prueba 6, divido por 0
+//salida:Exception in thread "main" java.lang.ArithmeticException:
+//by zero
+//at pruebas/pruebas.Calc.div(Calc.java:16)
+//at pruebas/pruebas.Main.main(Main.java:36)
 
 		// se agrega un control para evitar la división por cero
 		// if (b == 0)
@@ -100,10 +100,9 @@ public class Main {
 
 		// -------------------------------------------------------------------------------------------------------------------------------------------
 
-		// int num1 = -2147483647;
-		// int num2 = 2;
-
-		// System.out.println(num1 + " * " + num2 + " = " + Calc.mul(num1, num2));
+//int num1 = -2147483647;
+//int num2 = 2;
+//System.out.println(num1 + " * " + num2 + " = " + Calc.mul(num1, num2));
 
 		// prueba 6 intento superar el mínimo permitido por el lenguaje (-2147483648)
 		// Salida: -2147483647 * -2 = -2
@@ -141,7 +140,7 @@ public class Main {
 
 		CalcTest test = new CalcTest();
 
-		int numTest = 2;
+		int numTest = 1;
 		int max = 2147483647;
 		int min = -2147483648;
 
@@ -154,23 +153,11 @@ public class Main {
 		System.out.println("---------------------------------------------");
 
 		System.out.println("Test " + numTest++);
-		System.out.println(test.testSub(min, 3));
+		System.out.println(test.testSub(min, max));
 		System.out.println("---------------------------------------------");
 
 		System.out.println("Test " + numTest++);
-		System.out.println(test.testSub(3, 2));
-		System.out.println("---------------------------------------------");
-
-		System.out.println("Test " + numTest++);
-		System.out.println(test.testSub(3, -2));
-		System.out.println("---------------------------------------------");
-
-		System.out.println("Test " + numTest++);
-		System.out.println(test.testSub(-3, 2));
-		System.out.println("---------------------------------------------");
-
-		System.out.println("Test " + numTest++);
-		System.out.println(test.testSub(max, -2));
+		System.out.println(test.testSub(max, min));
 		System.out.println("---------------------------------------------");
 
 		System.out.println("Test " + numTest++);
@@ -178,7 +165,7 @@ public class Main {
 		System.out.println("---------------------------------------------");
 
 		System.out.println("Test " + numTest++);
-		System.out.println(test.testDiv(7, 3));
+		System.out.println(test.testDiv(3, 2));
 		System.out.println("---------------------------------------------");
 
 		System.out.println("Test " + numTest++);
@@ -190,10 +177,64 @@ public class Main {
 		System.out.println("---------------------------------------------");
 
 		System.out.println("Test " + numTest++);
-		System.out.println(test.testMul(2, 2));
+		System.out.println(test.testSub(3, -2));
 		System.out.println("---------------------------------------------");
+
 		System.out.println("Test " + numTest++);
-		System.out.println(test.testMul(2, -2));
+		System.out.println(test.testSub(-3, 2));
 		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testAdd(3, -2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testAdd(-3, 2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testMul(3, -2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testMul(-3, 2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testDiv(3, -2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testDiv(-3, 2));
+		System.out.println("---------------------------------------------");
+
+		System.out.println("Test " + numTest++);
+		System.out.println(test.testDiv(0, 2));
+		System.out.println("---------------------------------------------");
+
+		Ejercicio3Test testEje3 = new Ejercicio3Test();
+
+		String archivo = "/home/agustin/Documentos/prueba.txt";
+
+		System.out.println(testEje3.testEje3(archivo));
+		System.out.println("---------------------------------------------");
+		System.out.println(testEje3.testEje3Refac(archivo));
+		System.out.println("---------------------------------------------");
+
+		Ejercicio4Test testEje4 = new Ejercicio4Test();
+
+//		System.out.println(testEje4.testCalcularSalario(45, 10.0));
+//		System.out.println(testEje4.testCalcularSalarioNuevo(45, 10.0));
+		System.out.println("---------------------------------------------");
+		System.out.println("Test 1");
+		System.out.println(testEje4.testCalcularSalarioNuevo(5, 10.0));
+		System.out.println("---------------------------------------------");
+		System.out.println("Test 2");
+		System.out.println(testEje4.testCalcularSalarioNuevo(45, 10.0));
+		System.out.println("---------------------------------------------");
+		System.out.println("Test 3");
+		System.out.println("¿Y si el trabajador solo tiene 50 horas contratadas por mes?");
+		System.out.println(testEje4.testCalcularSalarioNuevo(70, 10.0));
+
 	}
 }
